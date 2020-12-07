@@ -1,0 +1,72 @@
+﻿@page
+@model Rezor_sample_EF.Pages.Employees.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Emp[0].Ename)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Emp[0].Job)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Emp[0].Mgr)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Emp[0].Hiredate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Emp[0].Sal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Emp[0].Comm)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Emp[0].Deptno)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Emp) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ename)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Job)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Mgr)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Hiredate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sal)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Comm)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Deptno)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Empno">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Empno">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Empno">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
